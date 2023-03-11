@@ -9,19 +9,24 @@
 // const READ_ONLY = 1;
 // const AUTHOR = 2;
 
+const body = document.getElementById('body') as HTMLBodyElement;
+const div = document.createElement('div');
+div.classList.add('paragraph-container')
+
 enum Role {ADMIN, READ_ONLY, AUTHOR} //assigns labels to variables
 
 const person = {
     name: 'Zaur',
     age: 30,
-    hobbies: ['Hockey'],
+    hobbies: ['Hockey', 'Football', 'Tennis'],
     role: Role.ADMIN
 } 
 
 // person.role.push('admin') // is allowed
 //person.role = [3, 'football player', 'admin'] //is not allowed
-console.log(person)
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase())
-}
+    person.hobbies.forEach((hobby) => {
+        body.append(div);
+        const p = document.createElement('p')
+        div.append(p);
+        p.append(hobby.toString());
+    })

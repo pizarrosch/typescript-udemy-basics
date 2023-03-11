@@ -1,7 +1,7 @@
 function add(n1, n2, showResult, phrase) {
     var result = n1 + n2;
     if (showResult) {
-        console.log(phrase + result);
+        return phrase + result;
     }
     else {
         return n1 + n2;
