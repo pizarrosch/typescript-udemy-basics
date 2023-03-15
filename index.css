@@ -3,3 +3,16 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.error-div {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  padding: 10px 15px;
+  text-align: center;
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  border: 2px red solid;
+  border-radius: 10px;
+}

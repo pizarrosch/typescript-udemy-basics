@@ -29,4 +29,5 @@ const person = {
         const p = document.createElement('p')
         div.append(p);
         p.append(hobby.toString());
+        console.log(p)
     })

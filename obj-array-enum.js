@@ -1,3 +1,4 @@
+"use strict";
 // const person: {
 //     name: string;
 //     age: number;
@@ -7,8 +8,8 @@
 // const ADMIN = 0;
 // const READ_ONLY = 1;
 // const AUTHOR = 2;
-var body = document.getElementById('body');
-var div = document.createElement('div');
+const body = document.getElementById('body');
+const div = document.createElement('div');
 div.classList.add('paragraph-container');
 var Role;
 (function (Role) {
@@ -16,7 +17,7 @@ var Role;
     Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
     Role[Role["AUTHOR"] = 2] = "AUTHOR";
 })(Role || (Role = {})); //assigns labels to variables
-var person = {
+const person = {
     name: 'Zaur',
     age: 30,
     hobbies: ['Hockey', 'Football', 'Tennis'],
@@ -24,9 +25,10 @@ var person = {
 };
 // person.role.push('admin') // is allowed
 //person.role = [3, 'football player', 'admin'] //is not allowed
-person.hobbies.forEach(function (hobby) {
+person.hobbies.forEach((hobby) => {
     body.append(div);
-    var p = document.createElement('p');
+    const p = document.createElement('p');
     div.append(p);
     p.append(hobby.toString());
+    console.log(p);
 });

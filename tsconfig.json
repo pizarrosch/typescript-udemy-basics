@@ -99,5 +99,9 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  "exclude": [
+    "node_modules", //if not explicitly set, node modules are automatically excluded. "exclude" option serves
+                  //to exclude a file one does not want to be compiled
+  ],
 }
