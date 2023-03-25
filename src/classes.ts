@@ -9,6 +9,14 @@ class Department {
         // this.name = name;
     }
 
+    // Static methods  --> these methods can be accessed from outside just by calling the class name, without
+    // creating a variable with "new Class", for example like Math.PI (not "new Math.PI)
+    // in our case it would be, for example, Department.createEmployee
+
+    static createEmployee(name: string) {
+        console.log({name: name});
+    }
+
     describe() {
         console.log(`Department: (${this.id}) ${this.name}`)
     }
@@ -37,13 +45,28 @@ class IT extends Department {
 }
 
 class reportsDepartment extends Department {
+    private recentReport: string;
+
+    get theRecentReport() {
+        if (this.recentReport) {
+            return this.recentReport
+        } else {
+            throw Error('Error')
+        }
+    }
+
+    set theRecentReport(value:string) {
+        this.createReports(value);
+    }
+
     constructor(id: number, public reports: string[]) {
         super(id, 'reportsDepartment');
-        this.reports = reports;
+        this.recentReport = reports[0];
     }
 
     createReports(text:string) {
         this.reports.push(text);
+        this.recentReport = text;
     }
 }
 
@@ -56,5 +79,9 @@ it.addEmployee('Stanley');
 it.render();
 console.log(it)
 reports.render();
-reports.createReports('Yesterday new devices were purchased')
+reports.createReports('Yesterday new devices were purchased');
+reports.theRecentReport = 'New computers are needed'
+console.log(reports.theRecentReport);
 console.log(reports);
+Department.createEmployee('Zaur'); // in such a way the static method can be called
+                                            // this does not work with normal methods
