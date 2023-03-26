@@ -1,5 +1,10 @@
-interface Person {
+interface Name {
     name: string;
+}
+
+// unlike class which can be extended only once, multiple interfaces can be extended
+
+interface Greet extends Name{
     age: number;
     greet(text: string): void;
 }
@@ -10,19 +15,21 @@ interface Person {
 // interfaces can also be used for classes, which implement the structure given in an interface. In this case additional
 // properties can be created in the class. This looks then like in an example below
 
-class Greeting implements Person {
-    name = 'Zaur';
+class Person implements Greet {
+    name: string;
     age = 33;
-    greet(text: string) {
-        console.log(text)
+    dogName = 'Goofy'
+
+    constructor(n: string) {
+        this.name = n;
     }
 
-    render() {
-        this.greet('Hello');
+    greet(text: string) {
+        console.log(text + ' ' + this.name + ' and ' + this.dogName)
     }
 }
 
-let user1: Person;
+let user1: Greet;
 
 user1 = {
     name: 'Zaur',
@@ -32,5 +39,7 @@ user1 = {
 }
 
 user1.greet(`Hello ${user1.name}! We congratulate you on your ${user1.age}d birthday!`)
-let greetings = new Greeting();
-greetings.render();
+let greetings: Greet;
+greetings = new Person('Zaur');
+greetings.greet('Hello');
+console.log(user1, greetings)
